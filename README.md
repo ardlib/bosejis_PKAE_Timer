@@ -17,7 +17,7 @@ It sets the member variable `_delay` to the specified delay, initializes `nStart
 Example:
 
 ```c++
-    PKAE_Timer Flash_LED(500);
+PKAE_Timer Flash_LED(500);
 ```
 
 The above line defines a timer instance called `Flash_LED` and the delay is set to `500 milliseconds`.The count down starts the moment the instance is created.
@@ -32,9 +32,9 @@ If `lReset` is true, it increments the count `nCount`, updates `nLastStarted` to
 Example:
 
 ```c++
-	if (Flash_LED.IsTimeUp()) {
-		// put code here e.g. toggle the LED state On/Off.
-	}
+if (Flash_LED.IsTimeUp()) {
+    // put code here e.g. toggle the LED state On/Off.
+}
 ```
 
 This will execute the code with in the curly braces whatever the timer (`500m/s` in our example) is reached. The timer automatically resets itself to start again.
@@ -44,9 +44,9 @@ You can pass an optional dynamic delay to check if an alternative duration has l
 Example:
 
 ```c++
-	if (Flash_LED.IsTimeUp(250)) {
-		// put code here to execute if 250m/s has lapsed. 
-	}
+if (Flash_LED.IsTimeUp(250)) {
+    // put code here to execute if 250m/s has lapsed. 
+}
 ```
 
 You can also pass an optional boolean expression to determine if the timer is reset or not. Handy if you wanted to temporarily stop the flashing for example.
@@ -54,9 +54,9 @@ You can also pass an optional boolean expression to determine if the timer is re
 Example:
 
 ```c++
-	if (Flash_LED.IsTimeUp(250,false)) {
-		// put code here to execute if 250m/s has lapsed. The timer will not reset.
-	}
+if (Flash_LED.IsTimeUp(250,false)) {
+    // put code here to execute if 250m/s has lapsed. The timer will not reset.
+}
 ```
 
 ## `Reset()` Function
@@ -66,7 +66,7 @@ The `Reset` function resets the timer by updating `nLastStarted` to the previous
 Example:
 
 ```c++
-	Flash_LED.Reset();
+Flash_LED.Reset();
 ```
 
 This will effectively restart the timer counter for the Flash_LED timer instance.
@@ -78,7 +78,7 @@ Retains a counter of the number of iterations that the timer instance has trigge
 Example:
 
 ```c++
-	xCount=Flash_LED.nCount;
+xCount=Flash_LED.nCount;
 ```
 
 `xCount` will store the number of times this timer has triggered,
@@ -91,7 +91,7 @@ Retains the `millis()` reading at the time in `millis` that the timer was starte
 Example:
 
 ```c++
-	xStarted=Flash_LED.nStarted;
+xStarted=Flash_LED.nStarted;
 ```
 
 `xStarted` will store when the last timer started for this timer instance. i.e. the `millis()` reading at the time it last initiated.
@@ -104,7 +104,7 @@ Retains the `millis()` reading of the previous time timer was started.
 Example:
 
 ```c++
-	xLastStarted=Flash_LED.nLastStarted;
+xLastStarted=Flash_LED.nLastStarted;
 ```
 
 `xLastStarted` will store when the previous timer started for this timer instance. i.e. the `millis()` reading at the time it previously initiated.
