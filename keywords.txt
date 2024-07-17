@@ -1,0 +1,20 @@
+#######################################
+# Syntax Coloring Map For PKAE_Timer
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+PKAE_Timer	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+IsTimeUp	KEYWORD2
+Reset	KEYWORD2
+nCount	KEYWORD2
+nStarted	KEYWORD2
+nLastStarted	KEYWORD2
+
