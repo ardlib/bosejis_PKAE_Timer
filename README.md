@@ -17,7 +17,7 @@ It sets the member variable `_delay` to the specified delay, initializes `nStart
 Example:
 
 ```c++
-	PKAE_Timer Flash_LED(500);
+    PKAE_Timer Flash_LED(500);
 ```
 
 The above line defines a timer instance called `Flash_LED` and the delay is set to `500 milliseconds`.The count down starts the moment the instance is created.
