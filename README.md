@@ -109,4 +109,8 @@ xLastStarted=Flash_LED.nLastStarted;
 
 `xLastStarted` will store when the previous timer started for this timer instance. i.e. the `millis()` reading at the time it previously initiated.
 
+## Note to Developers
+
+Make sure to run the `clang-format -i src/*.h src/*.cpp` on the repo.
+To clean the Example Sources `clang-format -i examples/TimerDemo-2/*.ino`
 
