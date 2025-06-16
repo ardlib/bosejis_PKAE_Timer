@@ -45,8 +45,8 @@ RepeatTimer::RepeatTimer(uin32_t repeat_ms, void (*callback)(void)) {
 
 bool RepeatTimer::update() {
   unsigned long ms = millis();
-  // Avoid Zero Interval
-  if ((ms >= _nextTrigger) && _interval) {
+  // Avoid Zero Interval and Null Callback
+  if ((ms >= _nextTrigger) && _interval && _callback != NULL) {
     _nextTrigger = ms + _interval;
     _callback();
     ++nCount;
