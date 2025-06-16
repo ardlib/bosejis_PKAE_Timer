@@ -12,6 +12,30 @@ Direct Link <https://www.youtube.com/watch?v=R7UKZ58vIyc>
 
 [![PKAE_Timer Library by PKAE Electronics](https://img.youtube.com/vi/R7UKZ58vIyc/0.jpg)](https://www.youtube.com/watch?v=R7UKZ58vIyc)
 
+## Installing `PKAE_Timer` Library in Arduino IDE
+
+### Using the [Zip File](https://github.com/ardlib/bosejis_PKAE_Timer/archive/refs/heads/main.zip) from this repository
+
+Downloading the Zip file of this repository from :
+
+<https://github.com/ardlib/bosejis_PKAE_Timer/archive/refs/heads/main.zip>
+
+And installing using the Add .ZIP Library feature:
+
+- For Arduino IDE 1.8.19 and above:
+
+    Go to Menu `Sketch -> Include Library -> Add .ZIP Library`
+
+### From Arduino Library Manager
+
+- For Arduino IDE 1.8.19 and above:
+
+    Go to Menu `Tools -> Manage Libraries...`
+
+- Search for `PKAE` or `PKAE Timer` you would see the Library appear.
+
+- Click on Install to get the library.
+
 ## `PKAE_Timer` Constructor
 
 The constructor initializes the timer with an optional *initial delay*. If no delay is provided, it defaults to 0.
