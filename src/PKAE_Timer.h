@@ -22,4 +22,18 @@ private:
   uint32_t _delay;
 };
 
+class RepeatTimer {
+public:
+  RepeatTimer(uin32_t repeat_ms, void (*callback)(void));
+  bool update();
+  void setRate(uin32_t repeat_ms);
+  void reset();
+  uint32_t nCount;
+
+private:
+  uint32_t _interval;
+  uint32_t _nextTrigger;
+  void (*_callback)(void);
+}
+
 #endif

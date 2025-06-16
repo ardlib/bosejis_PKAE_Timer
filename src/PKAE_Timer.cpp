@@ -35,3 +35,29 @@ boolean PKAE_Timer::IsTimeUp(uint32_t nDynamicDelay, boolean lReset) {
 
   return (lTimeUp);
 }
+
+RepeatTimer::RepeatTimer(uin32_t repeat_ms, void (*callback)(void)) {
+  nCount = 0;
+  _interval = repeat_ms;
+  _nextTrigger = millis() + repeat_ms;
+  _callback = callback;
+}
+
+bool RepeatTimer::update() {
+  unsigned long ms = millis();
+  // Avoid Zero Interval
+  if ((ms >= _nextTrigger) && _interval) {
+    _nextTrigger = ms + _interval;
+    _callback();
+    ++nCount;
+    return true;
+  }
+  return false;
+}
+
+void RepeatTimer::setRate(uin32_t repeat_ms) { _interval = repeat_ms; }
+
+void RepeatTimer::reset() {
+  _nextTrigger = millis() + _interval;
+  nCount = 0;
+}
