@@ -1,5 +1,5 @@
 #######################################
-# Syntax Coloring Map For PKAE_Timer
+# Syntax Coloring Map For Bosejis PKAE_Timer
 #######################################
 
 #######################################

@@ -1,6 +1,10 @@
-# `PKAE_Timer` Library by PKAE Electronics
+# `bosejis_PKAE_Timer` Library
 
 This class is a simple timer implementation that allows you to check if a certain amount of time has passed and optionally reset the timer. It can be useful for various timing-related tasks in embedded systems or other applications.
+
+This library was originally developed by **[PKAE Electronics](https://www.youtube.com/@paulpkae)**.
+
+This library is now maintained under @ardlib Organization.
 
 ## Video Demonstration of `PKAE_Timer` Library
 
@@ -114,3 +118,19 @@ xLastStarted=Flash_LED.nLastStarted;
 Make sure to run the `clang-format -i src/*.h src/*.cpp` on the repo.
 To clean the Example Sources `clang-format -i examples/TimerDemo-2/*.ino`
 
+## License
+
+This project is released under the MIT License. See the [LICENSE](./LICENSE) file for details.
+
+Sources: <https://github.com/ardlib/bosejis_PKAE_Timer>
+
+`bosejis_PKAE_Timer` - PAKE Timer Library
+
+Copyright (c) 2024 PKAE Electronics
+Copyright (C) 2025 by Abhijit Bose (aka. Boseji)
+
+SPDX-License-Identifier: `MIT`
+
+Full Name: `MIT License`
+
+For more details please visit <https://spdx.org/licenses/MIT.html>.
