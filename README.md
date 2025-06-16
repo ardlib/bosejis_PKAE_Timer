@@ -4,7 +4,7 @@ This class is a simple timer implementation that allows you to check if a certai
 
 This library was originally developed by **[PKAE Electronics](https://www.youtube.com/@paulpkae)**.
 
-This library is now maintained under @ardlib Organization.
+This library is now maintained under *[@ardlib](https://github.com/ardlib) Organization*.
 
 ## Video Demonstration of `PKAE_Timer` Library
 
