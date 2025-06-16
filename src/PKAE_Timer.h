@@ -11,15 +11,15 @@
 
 class PKAE_Timer {
 public:
-  PKAE_Timer(unsigned int delay);
+  PKAE_Timer(uint32_t delay);
   void Reset();
-  boolean IsTimeUp(unsigned int nDynamicDelay = 0, boolean lReset = true);
-  unsigned long nStarted;
-  unsigned long nLastStarted;
-  unsigned int nCount;
+  boolean IsTimeUp(uint32_t nDynamicDelay = 0, boolean lReset = true);
+  uint32_t nStarted;
+  uint32_t nLastStarted;
+  uint32_t nCount;
 
 private:
-  unsigned int _delay;
+  uint32_t _delay;
 };
 
 #endif
