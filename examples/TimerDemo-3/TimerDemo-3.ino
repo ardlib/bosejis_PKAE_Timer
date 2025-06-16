@@ -9,12 +9,16 @@
 void led1_blinker();
 void led2_blinker();
 void led3_blinker();
-void led4_blinker();
 void show_count();
 
 // Define the Repeat Timers
 RepeatTimer LED1_Flash(100, led1_blinker), LED2_Flash(300, led2_blinker);
-RepeatTimer LED3_Flash(500, led3_blinker), LED4_Flash(1000, led3_blinker);
+RepeatTimer LED3_Flash(500, led3_blinker);
+RepeatTimer LED4_Flash(1000, [](){
+  static bool LED4_State = LOW;
+  LED4_State = !LED4_State;
+  digitalWrite(LED4, LED4_State);
+});
 RepeatTimer ShowCount(3000, show_count);
 
 void led1_blinker() {
@@ -34,12 +38,6 @@ void led3_blinker() {
   static bool LED3_State = LOW;
   LED3_State = !LED3_State;
   digitalWrite(LED3, LED3_State);
-}
-
-void led4_blinker() {
-  static bool LED4_State = LOW;
-  LED4_State = !LED4_State;
-  digitalWrite(LED4, LED4_State);
 }
 
 void show_count() {
@@ -69,12 +67,9 @@ void setup() {
 // LOOP                                                                       |
 //=============================================================================
 void loop() {
-
-  while (true) {
-    LED1_Flash.update();
-    LED2_Flash.update();
-    LED3_Flash.update();
-    LED4_Flash.update();
-    ShowCount.update();
-  }
+  LED1_Flash.update();
+  LED2_Flash.update();
+  LED3_Flash.update();
+  LED4_Flash.update();
+  ShowCount.update();
 }
