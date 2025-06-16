@@ -139,8 +139,8 @@ xLastStarted=Flash_LED.nLastStarted;
 
 ## Note to Developers
 
-Make sure to run the `clang-format -i src/*.h src/*.cpp` on the repo.
-To clean the Example Sources `clang-format -i examples/TimerDemo-2/*.ino`
+Make sure to run the `clang-format --verbose -i src/*.h src/*.cpp` on the repo.
+To clean the Example Sources `clang-format --verbose -i examples/**/*.ino`.
 
 In order to keep the Compatibility make sure to test the *Arduino Compliance*
 run `arduino-lint --compliance strict`.
