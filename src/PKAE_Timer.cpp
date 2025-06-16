@@ -36,28 +36,50 @@ boolean PKAE_Timer::IsTimeUp(uint32_t nDynamicDelay, boolean lReset) {
   return (lTimeUp);
 }
 
-RepeatTimer::RepeatTimer(uin32_t repeat_ms, void (*callback)(void)) {
-  nCount = 0;
-  _interval = repeat_ms;
-  _nextTrigger = millis() + repeat_ms;
-  _callback = callback;
+RepeatTimer::RepeatTimer(uint32_t repeat_ms, std::function<void(void)> callback)
+  : _interval(repeat_ms), _callback(callback), nCount(0) {
+  if (isValid()) {
+    _nextTrigger = millis() + _interval;
+  } else {
+    _nextTrigger = 0;
+  }
 }
 
 bool RepeatTimer::update() {
-  unsigned long ms = millis();
-  // Avoid Zero Interval and Null Callback
-  if ((ms >= _nextTrigger) && _interval && _callback != NULL) {
-    _nextTrigger = ms + _interval;
-    _callback();
-    ++nCount;
+  if (!isValid()) {
+    return false;  // Don't trigger if invalid
+  }
+
+  uint32_t now = millis();
+  if ((int32_t)(now - _nextTrigger) >= 0) {
+    _callback();       // Execute callback
+    nCount++;          // Only increment if executed
+    _nextTrigger += _interval;
     return true;
   }
   return false;
 }
 
-void RepeatTimer::setRate(uin32_t repeat_ms) { _interval = repeat_ms; }
+void RepeatTimer::setRate(uint32_t repeat_ms) {
+  _interval = repeat_ms;
+  if (isValid()) {
+    _nextTrigger = millis() + _interval;
+  }
+}
+
+void RepeatTimer::setCallback(std::function<void(void)> callback) {
+  _callback = callback;
+  if (isValid()) {
+    _nextTrigger = millis() + _interval;
+  }
+}
 
 void RepeatTimer::reset() {
-  _nextTrigger = millis() + _interval;
-  nCount = 0;
+  if (isValid()) {
+    _nextTrigger = millis() + _interval;
+  }
+}
+
+bool RepeatTimer::isValid() const {
+  return _interval > 0 && static_cast<bool>(_callback);
 }
