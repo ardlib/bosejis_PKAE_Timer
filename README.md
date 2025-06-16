@@ -6,11 +6,15 @@ This library was originally developed by **[PKAE Electronics](https://www.youtub
 
 This library is now maintained under *[@ardlib](https://github.com/ardlib) Organization*.
 
+---
+
 ## Video Demonstration of `PKAE_Timer` Library
 
 Direct Link <https://www.youtube.com/watch?v=R7UKZ58vIyc>
 
 [![PKAE_Timer Library by PKAE Electronics](https://img.youtube.com/vi/R7UKZ58vIyc/0.jpg)](https://www.youtube.com/watch?v=R7UKZ58vIyc)
+
+---
 
 ## Installing `PKAE_Timer` Library in Arduino IDE
 
@@ -35,6 +39,8 @@ And installing using the Add .ZIP Library feature:
 - Search for `PKAE` or `PKAE Timer` you would see the Library appear.
 
 - Click on Install to get the library.
+
+---
 
 ## `PKAE_Timer` Constructor
 
@@ -137,6 +143,76 @@ xLastStarted=Flash_LED.nLastStarted;
 
 `xLastStarted` will store when the previous timer started for this timer instance. i.e. the `millis()` reading at the time it previously initiated.
 
+---
+
+## `RepeatTimer` - Lightweight Arduino Timer Class
+
+**`RepeatTimer`** is a minimal and efficient Arduino library for scheduling periodic callbacks using `millis()`. It is designed to work reliably on memory-constrained boards like the Arduino Uno and Nano.
+
+> Safe for AVR — uses plain function pointers, not `std::function`.
+
+### Features
+
+- Call a function every N milliseconds
+- Safe `millis()` wraparound handling
+- Tracks trigger count (`nCount`)
+- Supports dynamic interval or callback updates
+- Minimal RAM and code footprint
+- Designed for AVR and other constrained platforms
+- **No support for lambdas or captures** — uses plain C-style function pointers.
+- Ideal for Arduino Uno, Nano, Pro Mini, ATmega328P-based boards.
+
+### Usage
+
+#### 1. Define your callback
+
+```cpp
+void blinkLED() {
+  static bool state = LOW;
+  state = !state;
+  digitalWrite(LED_BUILTIN, state);
+}
+```
+
+#### 2. Create a timer instance
+
+```cpp
+RepeatTimer myTimer(1000, blinkLED); // Fire every 1000ms
+```
+
+#### 3. Call `.update()` inside `loop()`
+
+```cpp
+void loop() {
+  myTimer.update();
+}
+```
+
+### API Reference
+
+#### `RepeatTimer(uint32_t interval_ms, CallbackFn callback)`
+Create a new timer that calls `callback()` every `interval_ms`.
+
+#### `bool update()`
+Checks the timer and calls the callback if the interval has elapsed.
+
+#### `void setRate(uint32_t interval_ms)`
+Change the timer interval.
+
+#### `void setCallback(CallbackFn callback)`
+Set or update the callback function.
+
+#### `void reset()`
+Restart the timer countdown from now.
+
+#### `bool isValid()`
+Returns true if both callback and interval are set.
+
+#### `uint32_t nCount`
+Number of times the callback has been triggered.
+
+---
+
 ## Note to Developers
 
 Make sure to run the `clang-format --verbose -i src/*.h src/*.cpp` on the repo.
@@ -144,6 +220,8 @@ To clean the Example Sources `clang-format --verbose -i examples/**/*.ino`.
 
 In order to keep the Compatibility make sure to test the *Arduino Compliance*
 run `arduino-lint --compliance strict`.
+
+---
 
 ## License
 
