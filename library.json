@@ -1,0 +1,32 @@
+{
+  "name": "PKAE_Timer",
+  "version": "0.0.1",
+  "description": "Useful Timer library for Scheduling Tasks in loop",
+  "keywords": "timer, Scheduling, tool",
+  "authors": [
+    {
+      "name": "PKAE Electronics (Paul) <PKAE.electronics@pkae.co.uk>",
+      "url": "https://www.youtube.com/@paulpkae"
+    },
+    {
+      "name": "Abhijit Bose (aka. Boseji)",
+      "url": "https://github.com/boseji",
+      "maintainer": true
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ardlib/bosejis_PKAE_Timer.git"
+  },
+  "homepage": "https://www.youtube.com/@paulpkae",
+  "export": {
+    "exclude": [
+      "extras",
+      "docs"
+    ]
+  },
+  "dependencies": [],
+  "frameworks": "*",
+  "platforms": "*",
+  "examples": "examples/*/*/*.ino"
+}
