@@ -37,7 +37,7 @@ boolean PKAE_Timer::IsTimeUp(uint32_t nDynamicDelay, boolean lReset) {
 }
 
 RepeatTimer::RepeatTimer(uint32_t repeat_ms, CallbackFn callback)
-  : _interval(repeat_ms), _callback(callback), nCount(0) {
+    : _interval(repeat_ms), _callback(callback), nCount(0) {
   if (isValid()) {
     _nextTrigger = millis() + _interval;
   } else {
@@ -46,7 +46,8 @@ RepeatTimer::RepeatTimer(uint32_t repeat_ms, CallbackFn callback)
 }
 
 bool RepeatTimer::update() {
-  if (!isValid()) return false;
+  if (!isValid())
+    return false;
 
   uint32_t now = millis();
   if ((int32_t)(now - _nextTrigger) >= 0) {
